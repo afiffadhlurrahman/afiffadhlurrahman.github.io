@@ -6,34 +6,60 @@
     <title>Afif Fadhlurrahman | System Analyst & Solution Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fcfcfc;
         }
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
         .active-filter {
             background-color: #0078d4 !important;
             color: white !important;
             border-color: #0078d4 !important;
+            box-shadow: 0 4px 12px rgba(0, 120, 212, 0.25);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(12px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 10% 20%, rgba(0, 120, 212, 0.05) 0%, transparent 50%);
+        }
+
+        .industry-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 280px;
+        }
+        
+        .profile-image-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.2), transparent 40%);
+            pointer-events: none;
         }
     </style>
 </head>
-<body class="bg-[#f3f2f1] text-[#323130] selection:bg-[#deecf9] selection:text-[#0078d4]">
+<body class="text-[#1a1918] selection:bg-[#0078d4]/10 selection:text-[#0078d4]">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 py-6">
         <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <div class="w-9 h-9 bg-[#0078d4] rounded-md flex items-center justify-center text-white font-bold shadow-md text-lg">A</div>
+                <div class="w-10 h-10 bg-[#0078d4] rounded-xl flex items-center justify-center text-white font-extrabold shadow-lg shadow-blue-500/20 transform hover:rotate-6 transition-transform cursor-pointer">A</div>
                 <div class="flex items-center gap-6">
-                    <span class="font-bold text-[#201f1e] tracking-tight text-lg">Afif Fadhlurrahman</span>
+                    <span class="font-bold text-[#1a1918] tracking-tight text-lg hidden sm:block">Muhammad Afif Fadhlurrahman</span>
                     <div class="hidden lg:h-4 lg:w-px lg:bg-[#edebe9]"></div>
                     <div class="hidden lg:flex items-center gap-8">
                         <a href="#career" class="text-sm font-semibold text-[#605e5c] hover:text-[#0078d4] transition-colors">Experience</a>
@@ -42,208 +68,172 @@
                 </div>
             </div>
 
-            <div class="flex items-center gap-4">
-                <a href="mailto:afif.fadhlurrahman2@gmail.com" class="hidden sm:flex px-5 py-2 bg-[#0078d4] text-white text-sm font-semibold rounded hover:bg-[#106ebe] transition-all shadow-sm items-center gap-2">
-                    Get in Touch <i data-lucide="mail" class="w-4 h-4"></i>
+            <div class="flex items-center gap-3">
+                <a href="mailto:afif.fadhlurrahman2@gmail.com" class="hidden sm:flex px-6 py-2.5 bg-[#0078d4] text-white text-sm font-bold rounded-lg hover:bg-[#106ebe] transition-all shadow-md items-center gap-2">
+                    Contact Me <i data-lucide="send" class="w-4 h-4"></i>
                 </a>
-                <button id="menu-btn" class="lg:hidden p-2 text-[#605e5c]">
+                <button id="menu-btn" class="lg:hidden p-2.5 text-[#605e5c] bg-white rounded-lg border border-gray-200">
                     <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
                 </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white border-b border-[#edebe9] py-6 px-6 shadow-xl">
-            <div class="flex flex-col gap-4">
-                <a href="#career" class="mobile-link text-lg font-semibold text-[#323130]">Experience</a>
-                <a href="#portfolio" class="mobile-link text-lg font-semibold text-[#323130]">Portfolio</a>
-                <a href="mailto:afif.fadhlurrahman2@gmail.com" class="w-full py-3 bg-[#0078d4] text-white font-bold rounded text-center">Contact Me</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-40 pb-20 px-6 overflow-hidden">
+    <section class="relative pt-44 pb-24 px-6 overflow-hidden hero-gradient">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div class="order-2 lg:order-1 relative z-10">
-                <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#deecf9] text-[#003e92] rounded-full text-xs font-bold mb-8 uppercase tracking-wider">
-                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> System Analyst • Solution Architect
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#deecf9] text-[#003e92] rounded-full text-[10px] font-extrabold mb-10 uppercase tracking-[0.2em]">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                    </span>
+                    System Analyst • Solution Architect
                 </div>
-                <h1 class="text-5xl lg:text-7xl font-bold text-[#201f1e] leading-[1.1] tracking-tight mb-8">
-                    Building Scalable <br />
-                    <span class="text-[#0078d4]">& Efficient Solutions.</span>
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-[#1a1918] leading-[1.1] tracking-tight mb-10">
+                    Architecting <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0078d4] to-[#106ebe]">High-Scale Systems.</span>
                 </h1>
-                <p class="text-xl text-[#605e5c] leading-relaxed mb-10 max-w-xl">
-                    "Dedicated to deconstructing complex business challenges into efficient technical roadmaps through a systematic problem-solving approach."
+                <p class="text-lg text-[#605e5c] leading-relaxed mb-12 max-w-xl font-medium">
+                    Technical architect specializing in bridging complex business requirements into robust digital ecosystems—from government databases to Apple-standard mobile architectures.
                 </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#portfolio" class="px-8 py-3.5 bg-[#0078d4] text-white font-semibold rounded shadow-lg shadow-blue-700/20 hover:bg-[#106ebe] hover:-translate-y-0.5 transition-all flex items-center gap-2">
-                        View Portfolio <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i>
+                <div class="flex flex-wrap items-center gap-6">
+                    <a href="#portfolio" class="px-8 py-4 bg-[#0078d4] text-white font-bold rounded-xl shadow-xl shadow-blue-500/25 hover:bg-[#106ebe] hover:-translate-y-1 transition-all flex items-center gap-2 group">
+                        View Projects
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                     </a>
-                    <div class="flex items-center gap-3 ml-4">
-                        <a href="#" class="p-3 text-[#605e5c] hover:text-[#0078d4] transition-colors bg-white rounded-full shadow-sm border border-[#edebe9]"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        <a href="#" class="p-3 text-[#605e5c] hover:text-[#0078d4] transition-colors bg-white rounded-full shadow-sm border border-[#edebe9]"><i data-lucide="github" class="w-5 h-5"></i></a>
-                    </div>
                 </div>
             </div>
-
             <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
                 <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-[#0078d4] to-[#2b88d8] rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                    <div class="relative w-64 h-80 lg:w-80 lg:h-[420px] bg-white rounded-[2rem] p-3 shadow-2xl overflow-hidden border border-[#edebe9]">
-                        <div class="w-full h-full rounded-[1.5rem] overflow-hidden bg-[#f3f2f1]">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Afif Fadhlurrahman" class="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700">
-                        </div>
-                    </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-[#edebe9] flex items-center gap-4">
-                        <div class="w-12 h-12 bg-[#fff100] rounded-full flex items-center justify-center text-[#201f1e]">
-                            <i data-lucide="award" class="w-7 h-7"></i>
-                        </div>
-                        <div>
-                            <p class="text-[10px] font-bold uppercase tracking-widest text-[#605e5c]">Education</p>
-                            <p class="text-sm font-bold">ITS • Cum Laude</p>
-                        </div>
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-[#0078d4] to-[#deecf9] rounded-[2.5rem] blur-2xl opacity-20 transition duration-1000"></div>
+                    <div class="relative w-72 h-88 lg:w-96 lg:h-[480px] bg-white rounded-[2.5rem] p-4 shadow-2xl border border-white overflow-hidden profile-image-container">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQGJbNZS0Y_afA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1685718007541?e=1769644800&v=beta&t=kl_YeINtowE5sFDLKv73v5OsV0rjKHGv3PyUpehZOnA" alt="Muhammad Afif Professional Portrait" class="w-full h-full object-cover rounded-[2rem] filter contrast-[1.05] brightness-[1.02]">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Work Experience -->
-    <section id="career" class="py-24 bg-white border-y border-[#edebe9]">
+    <!-- Career Timeline -->
+    <section id="career" class="py-32 bg-white relative">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-[#0078d4] font-bold text-sm uppercase tracking-widest mb-4">Professional Adaptability</h2>
-                <h3 class="text-3xl lg:text-4xl font-bold text-[#201f1e]">Experience Across Key Industries.</h3>
+            <div class="max-w-2xl mb-20">
+                <h2 class="text-[#0078d4] font-extrabold text-xs uppercase tracking-[0.3em] mb-4">Professional Milestones</h2>
+                <h3 class="text-4xl lg:text-5xl font-extrabold text-[#1a1918] leading-tight">Career Architecture.</h3>
             </div>
-            <div id="industry-container" class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
-                <!-- Data injected via JS -->
+            <div id="industry-container" class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 items-stretch">
+                <!-- Data via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="py-24 px-6">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-32 px-6 bg-[#f8f9fa]">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div>
-                    <h2 class="text-[#0078d4] font-bold text-sm uppercase tracking-widest mb-4">Project Highlights</h2>
-                    <h3 class="text-3xl lg:text-4xl font-bold text-[#201f1e]">Execution & Results</h3>
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
+                <div class="max-w-xl">
+                    <h2 class="text-[#0078d4] font-extrabold text-xs uppercase tracking-[0.3em] mb-4">Strategic Portfolio</h2>
+                    <h3 class="text-4xl font-extrabold text-[#1a1918]">Analysis & Leadership Roles.</h3>
                 </div>
-                <div id="filter-container" class="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
-                    <button onclick="filterProjects('All')" class="filter-btn active-filter px-4 py-1.5 rounded-full text-xs font-bold transition-all border whitespace-nowrap bg-white text-[#605e5c] border-[#edebe9] hover:border-[#0078d4]">All</button>
-                    <button onclick="filterProjects('Enterprise')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all border whitespace-nowrap bg-white text-[#605e5c] border-[#edebe9] hover:border-[#0078d4]">Enterprise</button>
-                    <button onclick="filterProjects('Academy')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all border whitespace-nowrap bg-white text-[#605e5c] border-[#edebe9] hover:border-[#0078d4]">Apple Academy</button>
-                    <button onclick="filterProjects('Research')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all border whitespace-nowrap bg-white text-[#605e5c] border-[#edebe9] hover:border-[#0078d4]">Research</button>
-                    <button onclick="filterProjects('Public')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all border whitespace-nowrap bg-white text-[#605e5c] border-[#edebe9] hover:border-[#0078d4]">Public</button>
+                <div id="filter-container" class="flex p-1 bg-white rounded-xl shadow-sm border border-gray-100 no-scrollbar overflow-x-auto">
+                    <button id="filter-all" onclick="filterProjects('All')" class="filter-btn active-filter px-6 py-2.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap">All Projects</button>
+                    <button id="filter-enterprise" onclick="filterProjects('Enterprise')" class="filter-btn px-6 py-2.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap text-gray-500">Enterprise / ERP</button>
+                    <button id="filter-ios" onclick="filterProjects('iOS/macOS')" class="filter-btn px-6 py-2.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap text-gray-500">Apple Ecosystem</button>
+                    <button id="filter-gov" onclick="filterProjects('Research/Gov')" class="filter-btn px-6 py-2.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap text-gray-500">Research & Gov</button>
                 </div>
             </div>
 
-            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Data injected via JS -->
+            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Data via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Technical Summary -->
-    <section class="py-20 px-6 bg-[#201f1e] text-white">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    <!-- Skills/Tech Stack -->
+    <section class="py-32 px-6 bg-[#1a1918] text-white">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
             <div>
-                <h3 class="text-3xl lg:text-4xl font-bold mb-8 leading-tight">Bridging Stakeholders & <br /><span class="text-[#0078d4]">Development Integrity.</span></h3>
-                <p class="text-[#a19f9d] text-lg mb-10 leading-relaxed">
-                    Combining a technical Informatics foundation with business-oriented analysis to deliver robust and user-centric systems.
-                </p>
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="p-6 bg-white/5 rounded-xl border border-white/10">
-                        <div class="text-3xl font-bold text-white mb-1">90%+</div>
-                        <div class="text-xs font-bold text-[#a19f9d] uppercase tracking-widest">UAT Approval Rate</div>
+                <h3 class="text-5xl font-extrabold mb-8">Technical <span class="text-[#0078d4]">Expertise.</span></h3>
+                <div class="space-y-6">
+                    <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                        <h4 class="text-[#0078d4] font-bold text-sm uppercase mb-3">Enterprise & ERP Systems</h4>
+                        <p class="text-gray-400 text-sm">Integration patterns between BOSNET Platforms and SAP ERP, SQL Server optimization, and high-volume data migration (800k+ records).</p>
                     </div>
-                    <div class="p-6 bg-white/5 rounded-xl border border-white/10">
-                        <div class="text-3xl font-bold text-white mb-1">5+</div>
-                        <div class="text-xs font-bold text-[#a19f9d] uppercase tracking-widest">Mastered Industries</div>
+                    <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                        <h4 class="text-[#0078d4] font-bold text-sm uppercase mb-3">Apple Frameworks</h4>
+                        <p class="text-gray-400 text-sm">SwiftUI, HealthKit, Multipeer Connectivity, CreateML, and App Store deployment lifecycles.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="bg-white text-[#323130] p-10 rounded-[2.5rem] shadow-2xl">
-                <h4 class="font-bold text-xs mb-8 border-b border-[#f3f2f1] pb-4 uppercase tracking-wider">Core Technicalities</h4>
-                <div id="skills-list" class="grid grid-cols-2 gap-x-8 gap-y-4 mb-10">
-                    <!-- Skills list -->
-                </div>
-                <div class="p-6 bg-[#deecf9] rounded-2xl flex items-center justify-between">
-                    <div>
-                        <p class="text-xs font-bold text-[#003e92] uppercase">Key Expertise</p>
-                        <p class="text-sm font-bold mt-1">Python, SQL, Swift, Figma, ERP Integration</p>
-                    </div>
-                    <i data-lucide="shield-check" class="text-[#0078d4] w-8 h-8"></i>
-                </div>
+            <div class="grid grid-cols-2 gap-4" id="skills-grid">
+                <!-- Data via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-20 px-6 bg-[#f3f2f1] border-t border-[#edebe9]">
-        <div class="max-w-7xl mx-auto text-center md:text-left">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
-                <div>
-                    <h4 class="text-4xl font-bold text-[#201f1e] mb-4">Ready for Strategic Collaboration.</h4>
-                    <p class="text-[#605e5c]">Open to new opportunities in System Analysis & Solution Design.</p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-                    <a href="mailto:afif.fadhlurrahman2@gmail.com" class="px-8 py-3.5 bg-[#0078d4] text-white font-semibold rounded shadow-lg shadow-blue-700/20 hover:bg-[#106ebe] transition-all text-center">
-                        Contact via Email
-                    </a>
-                    <a href="#" class="px-8 py-3.5 bg-white border border-[#edebe9] text-[#201f1e] font-semibold rounded hover:bg-[#faf9f8] transition-all text-center">
-                        LinkedIn Profile
-                    </a>
-                </div>
-            </div>
-            <div class="mt-20 pt-10 border-t border-[#edebe9] flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-[#0078d4] rounded-md flex items-center justify-center text-white font-bold text-xs">A</div>
-                    <span class="font-bold text-[#201f1e]">Afif Fadhlurrahman</span>
-                </div>
-                <div id="year-copy" class="text-[11px] font-bold text-[#a19f9d] uppercase tracking-[0.3em]">
-                    © 2025 • Jakarta, Indonesia
-                </div>
-            </div>
+    <footer class="py-20 px-6 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto text-center">
+            <p id="year-copy" class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-4"></p>
+            <h4 class="text-2xl font-extrabold text-[#1a1918]">Muhammad Afif Fadhlurrahman</h4>
+            <p class="text-gray-500 mt-2">System Analyst | Solution Architect</p>
         </div>
     </footer>
 
     <script>
-        // --- DATA ---
         const industries = [
-            { name: "EPC", company: "PT Timas Suplindo", period: "2025 - Present", desc: "Energy & Infrastructure Systems", icon: "settings" },
-            { name: "FMCG", company: "PT Bosnet Distribution", period: "2025", desc: "Supply Chain & Logistics", icon: "cpu" },
-            { name: "Education", company: "Apple Developer Academy", period: "2024", desc: "Software Ecosystems", icon: "layers" },
-            { name: "Government", company: "East Java Provincial Government", period: "2022", desc: "Public Sector Education Systems", icon: "globe" },
-            { name: "Construction", company: "PT PP (Persero) Tbk", period: "2022 - 2023", desc: "Enterprise ERP & Security", icon: "monitor" },
+            { name: "EPC & Energy", company: "PT Timas Suplindo", period: "2025 - Present", desc: "Enterprise Architecture", icon: "settings" },
+            { name: "FMCG / Dist.", company: "PT Bosnet Distribution", period: "2025", desc: "System Analysis & ERP Implementation", icon: "package" },
+            { name: "Software Dev.", company: "Apple Developer Academy", period: "2024", desc: "Product Engineering & Lead Role", icon: "smartphone" },
+            { name: "Construction", company: "PT PP (Persero) Tbk", period: "2022 - 2023", desc: "ISO 27001 & IT Infrastructure Research", icon: "shield-check" },
+            { name: "Government", company: "East Java Provincial Gov", period: "2020 - 2022", desc: "Large-Scale Data Analysis & GovTech", icon: "building-2" },
         ];
 
         const allProjects = [
-            { title: "Customer Universe AI Consolidation", client: "Kalbe Nutritionals", category: "Enterprise", description: "Designed a large-scale customer data consolidation system using AI-driven logic.", points: ["Defined system requirements for >800k data classification.", "Managed initial data injection and master data synchronization.", "Led UAT sessions to validate AI grouping accuracy."], tags: ["AI", "SQL Server", "System Design"], icon: "brain-circuit", iconColor: "#0078d4" },
-            { title: "BOSNET Platform Customization", client: "KCSOFTEX", category: "Enterprise", description: "Tailored the BOSNET distribution platform for specific warehouse and logistics needs.", points: ["Conducted gap analysis between standard features and client business processes.", "Facilitated technical requirement gathering for reporting modules.", "Managed stakeholder expectations during the customization cycle."], tags: ["FMCG", "BOSNET", "Customization"], icon: "settings", iconColor: "#5c2d91" },
-            { title: "SAP-Integrated Pricing Workflow", client: "APICAL", category: "Enterprise", description: "Automated financial data flow from Price Request to Invoice with SAP integration.", points: ["Synchronized data between Bosnet and SAP ecosystems.", "Validated transaction logic from Sales Order to Trade Confirmation.", "Ensured data integrity for cross-platform transactions."], tags: ["SAP", "ERP", "Testing"], icon: "database", iconColor: "#107c10" },
-            { title: "EHB-BKS: Jatim Senior High System", client: "East Java Provincial Gov", category: "Public", description: "Developed a comprehensive evaluation system for high schools in East Java.", points: ["Architected system to handle high concurrency traffic.", "Designed secure data handling protocols for student records.", "Collaborated directly with government stakeholders."], tags: ["Web", "Gov", "Education"], icon: "globe", iconColor: "#d83b01" },
-            { title: "noQ (No Queue) Ecosystem", client: "Apple Developer Academy", category: "Academy", description: "A digital queue management system to streamline merchant-customer interactions.", points: ["Developed core features using SwiftUI.", "Researched solutions for physical queuing challenges.", "Managed code and version control using Git."], tags: ["SwiftUI", "iOS", "Product"], icon: "smartphone", iconColor: "#5c2d91" },
-            { title: "Fit Lift Max (Tech Lead)", client: "Apple Developer Academy", category: "Academy", description: "One-Rep Max (1RM) calculator for weightlifters with progress tracking.", points: ["Served as Tech Lead, overseeing the development lifecycle.", "Implemented MVVM architecture for code scalability.", "Integrated accessibility features for App Store release."], tags: ["MVVM", "Lead", "App Store"], icon: "award", iconColor: "#0078d4" },
-            { title: "Grow (Health/watchOS)", client: "Apple Developer Academy", category: "Academy", description: "An Apple Watch app using visual communication to motivate runners.", points: ["Integrated HealthKit for health activity tracking.", "Implemented Lottie animations to enhance UX.", "Focused on efficient data visualization for wearables."], tags: ["watchOS", "HealthKit", "Lottie"], icon: "watch", iconColor: "#107c10" }
+            // --- ENTERPRISE SECTION ---
+            { title: "Customer Universe AI Consolidation", client: "KALBE NUTRITIONALS", category: "Enterprise", description: "Orchestrated the architectural design for a large-scale AI customer grouping system.", points: ["Injected & mapped 800,000+ customer records to Master DB", "Defined system requirements for AI-based data grouping", "Led comprehensive UAT & stakeholder testing sessions"], tags: ["AI", "SQL Server", "ETL"], icon: "database", iconColor: "#0078d4" },
+            { title: "SAP-BOSNET Platform Integration", client: "APICAL", category: "Enterprise", description: "Built high-integrity data bridges between BOSNET and SAP ERP systems.", points: ["Validated workflows from pricing to invoicing", "Synchronized transactional data integrity across platforms", "Managed technical case studies for SAP integration"], tags: ["SAP", "ERP", "Integration"], icon: "refresh-cw", iconColor: "#107c10" },
+            { title: "New Outlet Order (NOO) Architecture", client: "KCSOFTEX", category: "Enterprise", description: "Designed territory management systems for field agent sales ordering.", points: ["Created system blueprints for region-based sales logic", "Regional-specific deployment & technical documentation", "Provided tier-2 technical user support"], tags: ["Sales Logic", "System Design"], icon: "map-pin", iconColor: "#d83b01" },
+            { title: "Sales Analytics & Incentive Engine", client: "Bintang Sayap Utama", category: "Enterprise", description: "Defined complex reporting logic for Sales KPIs and incentive calculations.", points: ["Developed metrics for Effective Call & Route Feedback", "Differentiated Back-office vs Field sales tracking", "Standardized return item print formats"], tags: ["Analytics", "KPI", "Reporting"], icon: "bar-chart-3", iconColor: "#5c2d91" },
+
+            // --- RESEARCH & GOV ---
+            { title: "EHB-BKS Evaluation System", client: "East Java Gov", category: "Research/Gov", description: "Managed provincial-level high school evaluation data for millions of records.", points: ["Consolidated multi-school data into central DB", "Optimized database performance for high concurrency", "Collaborated on data governance for public sector"], tags: ["GovTech", "Large Scale", "MySQL"], icon: "globe", iconColor: "#0078d4" },
+            { title: "Research: ML Article Analysis", client: "Academic Research", category: "Research/Gov", description: "Pioneered semantic relationship analyzer for academic publications.", points: ["Utilized Neo4j Graph DB for relationship mapping", "Implemented NLP Machine Learning via Python", "Architected publication track record analysis models"], tags: ["Python", "Neo4j", "NLP"], icon: "microscope", iconColor: "#201f1e" },
+            { title: "ISO 27001 Security Audit Compliance", client: "PT PP (Persero) Tbk", category: "Research/Gov", description: "Led technical documentation for international security standards.", points: ["Managed 2023 ISO 27001 audit preparations", "Researched tech alignment with strategic goals", "Developed server capacity prediction models"], tags: ["Security", "ISO 27001", "Compliance"], icon: "shield-check", iconColor: "#107c10" },
+
+            // --- APPLE ECOSYSTEM ---
+            { title: "noQ (No Queue) Ecosystem", client: "Apple Academy", category: "iOS/macOS", description: "Engineered iOS solutions to optimize merchant-customer order efficiency.", points: ["Implemented core UI components using SwiftUI", "Managed TestFlight deployment & Git versioning", "In-depth technical research on queuing algorithms"], tags: ["SwiftUI", "Git", "TestFlight"], icon: "zap", iconColor: "#5c2d91" },
+            { title: "Fit Lift Max (Tech Lead)", client: "App Store", category: "iOS/macOS", description: "Led the development of a professional 1RM calculator for weightlifting.", points: ["Architected app using MVVM design pattern", "Directed team tasks & code quality management", "Successfully launched on Global App Store"], tags: ["MVVM", "Lead", "App Store"], icon: "dumbbell", iconColor: "#0078d4" },
+            { title: "Bomb'n Chase (Game Architect)", client: "Krya Studio", category: "iOS/macOS", description: "High-intensity PvP competitive game using advanced iOS frameworks.", points: ["Implemented Multipeer Connectivity for real-time multiplayer", "Integrated ECS (Entity-Component-System) Framework", "Combined SpriteKit with SwiftUI for unified UI"], tags: ["GameDev", "ECS", "Multipeer"], icon: "gamepad-2", iconColor: "#d83b01" },
+            { title: "Mimicry (AI Facial Training)", client: "macOS Dev", category: "iOS/macOS", description: "Revolutionized facial acting training via real-time ML analysis on macOS.", points: ["Built custom ML models using Apple CreateML", "Designed Figma prototypes for macOS desktop UX", "Implemented real-time facial expression recognition"], tags: ["CreateML", "macOS", "Figma"], icon: "smile", iconColor: "#5c2d91" },
+            { title: "Parvata (Hiking Safety)", client: "Apple Watch", category: "iOS/macOS", description: "Real-time health monitoring and connectivity system for hiking safety.", points: ["Integrated HealthKit for live heart rate telemetry", "Utilized Watch Connectivity for peer-to-peer data", "Engineered fatigue detection logic"], tags: ["HealthKit", "watchOS", "Safety"], icon: "activity", iconColor: "#107c10" }
         ];
 
-        const skills = ["Requirement Elicitation", "BPMN & Flow Design", "Database Modeling", "UAT Management", "Solution Architecture", "Agile/Scrum Leadership"];
+        const skills = [
+            "BPMN & Workflow Modeling", "UAT & Quality Assurance", "Master Data Management", 
+            "Solution Architecture", "Agile/Scrum Framework", "API Integration", 
+            "Swift & SwiftUI", "SQL Server / Neo4j", "Python & Machine Learning", "Technical Leadership"
+        ];
 
-        // --- RENDER FUNCTIONS ---
         function renderIndustries() {
             const container = document.getElementById('industry-container');
             container.innerHTML = industries.map(ind => `
-                <div class="p-6 bg-[#faf9f8] rounded-xl border border-[#edebe9] hover:bg-white hover:shadow-xl hover:border-[#0078d4] transition-all group">
-                    <div class="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-[#0078d4] mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="${ind.icon}" class="w-5 h-5"></i>
+                <div class="industry-card p-8 bg-white rounded-3xl border border-gray-100 hover:border-blue-100 hover:shadow-2xl hover:shadow-blue-500/5 transition-all group cursor-default">
+                    <div class="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-blue-50 group-hover:text-[#0078d4] mb-6 transition-all transform group-hover:-translate-y-1 shrink-0">
+                        <i data-lucide="${ind.icon}" class="w-6 h-6"></i>
                     </div>
-                    <div class="text-[9px] font-bold text-[#0078d4] uppercase mb-1">${ind.name} Industry</div>
-                    <h4 class="text-md font-bold text-[#201f1e] mb-2">${ind.company}</h4>
-                    <p class="text-[12px] text-[#605e5c] mb-4 leading-snug">${ind.desc}</p>
-                    <div class="text-[10px] font-bold text-[#a19f9d] pt-3 border-t border-[#edebe9]">${ind.period}</div>
+                    
+                    <div class="flex-grow">
+                        <div class="text-[9px] font-extrabold text-[#0078d4] uppercase tracking-widest mb-1.5">${ind.name}</div>
+                        <h4 class="text-lg font-extrabold text-[#1a1918] mb-3 leading-tight">${ind.company}</h4>
+                        <p class="text-xs font-medium text-gray-400 leading-relaxed mb-6">${ind.desc}</p>
+                    </div>
+
+                    <div class="mt-auto pt-4 border-t border-gray-50">
+                        <span class="text-[10px] font-extrabold text-blue-600 bg-blue-50 inline-block px-3 py-1 rounded-full whitespace-nowrap">
+                            ${ind.period}
+                        </span>
+                    </div>
                 </div>
             `).join('');
             lucide.createIcons();
@@ -251,33 +241,32 @@
 
         function renderProjects(category = 'All') {
             const container = document.getElementById('projects-grid');
-            const filtered = category === 'All' ? allProjects : allProjects.filter(p => p.category.includes(category === 'Research' ? 'Research' : (category === 'Public' ? 'Public' : category)));
+            // Ensure filtering logic uses the correct category string
+            const filtered = category === 'All' ? allProjects : allProjects.filter(p => p.category === category);
             
             container.innerHTML = filtered.map(p => `
-                <div class="bg-white rounded-2xl border border-[#edebe9] overflow-hidden flex flex-col hover:shadow-2xl transition-all group shadow-sm">
-                    <div class="p-8 flex flex-col h-full">
-                        <div class="flex justify-between items-start mb-6">
-                            <div class="p-3 bg-[#f3f2f1] rounded-lg group-hover:bg-[#deecf9] transition-colors">
-                                <i data-lucide="${p.icon}" class="w-6 h-6" style="color: ${p.iconColor}"></i>
+                <div class="project-card bg-white rounded-[2rem] border border-gray-100 p-8 hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6 shrink-0">
+                        <div class="p-3 bg-gray-50 rounded-xl">
+                            <i data-lucide="${p.icon}" class="w-6 h-6" style="color: ${p.iconColor}"></i>
+                        </div>
+                        <span class="text-[9px] font-extrabold bg-gray-100 text-gray-400 px-3 py-1 rounded-lg uppercase tracking-widest">${p.category}</span>
+                    </div>
+                    <div class="mb-6 flex-grow">
+                        <p class="text-[10px] font-extrabold text-[#0078d4] uppercase tracking-widest mb-1">${p.client}</p>
+                        <h5 class="text-xl font-extrabold text-[#1a1918] mb-3">${p.title}</h5>
+                        <p class="text-xs font-medium text-gray-500 leading-relaxed">${p.description}</p>
+                    </div>
+                    <div class="space-y-3 mb-8 shrink-0">
+                        ${p.points.map(pt => `
+                            <div class="flex gap-2 text-[11px] font-semibold text-gray-700">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-blue-500 shrink-0"></i>
+                                ${pt}
                             </div>
-                            <span class="text-[9px] font-bold bg-[#f3f2f1] text-[#605e5c] px-3 py-1 rounded-full uppercase tracking-widest">${p.category}</span>
-                        </div>
-                        <div class="mb-6">
-                            <h4 class="text-[11px] font-bold text-[#0078d4] uppercase tracking-widest mb-1">${p.client}</h4>
-                            <h5 class="text-xl font-bold text-[#201f1e] leading-tight mb-3">${p.title}</h5>
-                            <p class="text-sm text-[#605e5c] leading-relaxed line-clamp-2">${p.description}</p>
-                        </div>
-                        <div class="space-y-3 mb-8 flex-grow">
-                            ${p.points.map(pt => `
-                                <div class="flex gap-3 text-[13px] text-[#323130] font-medium leading-tight">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-[#107c10] shrink-0 mt-0.5"></i>
-                                    ${pt}
-                                </div>
-                            `).join('')}
-                        </div>
-                        <div class="flex flex-wrap gap-2 pt-6 border-t border-[#f3f2f1]">
-                            ${p.tags.map(tag => `<span class="px-2 py-1 bg-[#f3f2f1] text-[#605e5c] text-[9px] font-bold rounded uppercase">${tag}</span>`).join('')}
-                        </div>
+                        `).join('')}
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 pt-6 border-t border-gray-50 shrink-0">
+                        ${p.tags.map(tag => `<span class="px-2 py-1 bg-gray-50 text-gray-400 text-[9px] font-bold rounded-md">${tag}</span>`).join('')}
                     </div>
                 </div>
             `).join('');
@@ -285,55 +274,47 @@
         }
 
         function renderSkills() {
-            const container = document.getElementById('skills-list');
+            const container = document.getElementById('skills-grid');
             container.innerHTML = skills.map(skill => `
-                <div class="flex items-center gap-3 text-sm font-semibold text-[#605e5c]">
-                    <div class="w-1.5 h-1.5 rounded-full bg-[#0078d4]"></div>
-                    ${skill}
+                <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center hover:bg-white/10 transition-colors">
+                    <p class="text-xs font-bold text-gray-300">${skill}</p>
                 </div>
             `).join('');
         }
 
-        // --- EVENT HANDLERS ---
         function filterProjects(cat) {
+            // Updated UI state logic to be more reliable
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active-filter');
-                if (btn.innerText.trim() === (cat === 'All' ? 'All' : cat)) {
-                    btn.classList.add('active-filter');
-                }
+                btn.classList.add('text-gray-500');
             });
+
+            // Map the category parameter back to the correct button ID
+            let activeBtn;
+            if (cat === 'All') activeBtn = document.getElementById('filter-all');
+            else if (cat === 'Enterprise') activeBtn = document.getElementById('filter-enterprise');
+            else if (cat === 'iOS/macOS') activeBtn = document.getElementById('filter-ios');
+            else if (cat === 'Research/Gov') activeBtn = document.getElementById('filter-gov');
+
+            if (activeBtn) {
+                activeBtn.classList.add('active-filter');
+                activeBtn.classList.remove('text-gray-500');
+            }
+
             renderProjects(cat);
         }
 
-        // Scroll Navbar Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 20) {
-                nav.classList.add('bg-white/80', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-[#edebe9]', 'py-3');
-                nav.classList.remove('bg-transparent', 'py-6');
-            } else {
-                nav.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-[#edebe9]', 'py-3');
-                nav.classList.add('bg-transparent', 'py-6');
-            }
+            if (window.scrollY > 40) nav.classList.add('glass-nav', 'shadow-xl', 'py-4');
+            else nav.classList.remove('glass-nav', 'shadow-xl', 'py-4');
         });
 
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
-
-        // Initialization
         document.addEventListener('DOMContentLoaded', () => {
             renderIndustries();
             renderProjects();
             renderSkills();
-            document.getElementById('year-copy').innerText = `© ${new Date().getFullYear()} • Jakarta, Indonesia`;
+            document.getElementById('year-copy').innerText = `© ${new Date().getFullYear()} • JAKARTA, INDONESIA`;
         });
     </script>
 </body>
